@@ -1,0 +1,181 @@
+<!-- action.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeux d'Action - Gaaming Woorld</title>
+    <link rel="stylesheet" href="projet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" role="status" aria-live="polite">
+        <div>
+            <span style="font-size:2.2rem;color:var(--stellar-gold);font-family:var(--font-main);">Gaaming Woorld</span>
+            <div id="loading-progress" aria-label="Loading progress">
+                <div id="loading-bar"></div>
+            </div>
+            <span id="loading-text" style="margin-top:12px;font-size:1rem;color:#fff;">Chargement des jeux d'action...</span>
+        </div>
+    </div>
+
+    <!-- Starfield Background -->
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <!-- Header avec navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>🎮</span>
+                    <span>Gaaming Woorld</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="projet.html" >Accueil</a></li>
+                        <li><a href="action.html" >Action</a></li>
+                        <li><a href="adv.html">Aventure</a></li>
+                        <li><a href="sport.html" >Sport</a></li>
+                        <li><a href="strateg.html" >Stratégie</a></li>
+                        <li><a href="connexion.html" class="active" class="auth-btn">Connexion</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Hero Action -->
+    <section class="hero">
+        <div class="container">
+            <h1>Jeux de Strategy</h1>
+            <p>Plongez dans l'action pure ! Des jeux palpitants qui vous mettront à l'épreuve.</p>
+            <a href="#games" class="btn">Explorer les jeux</a>
+        </div>
+    </section>
+
+    <!-- Section Jeux d'Action -->
+    <section class="popular-games" id="games">
+        <div class="container">
+            <h2 class="section-title">Jeux de Strategy</h2>
+            <div class="games-grid">
+                <!-- Jeu 1 -->
+                <div class="game-card">
+                    <img id="img1" src="counterstrike.jpeg" alt="">
+                    <div class="game-image" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
+                        <div class="game-overlay">
+                            <span class="game-rating">4.5 ★</span>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">COUNTER STRIKE </h3>
+                        <p class="game-description">Unmask the ghost among you.</p>
+                        <div class="game-meta">
+                            <span class="game-category">Action</span>
+                            <button class="download-btn" onclick="downloadGame('Ghost of Yotei')">Télécharger</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="game-card">
+                    <img id="img1" src="chess.jpeg" alt="">
+                    <div class="game-image" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
+                        <div class="game-overlay">
+                            <span class="game-rating">4.5 ★</span>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">CHEES</h3>
+                        <p class="game-description">Unmask the ghost among you.</p>
+                        <div class="game-meta">
+                            <span class="game-category">Action</span>
+                            <button class="download-btn" onclick="downloadGame('Ghost of Yotei')">Télécharger</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="game-card">
+                    
+                    <div class="game-image" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
+                        <div class="game-overlay">
+                            <span class="game-rating">4.5 ★</span>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <img id="img1" src="starcraft.jpeg" alt="">
+                        <h3 class="game-title">STAR CRAFT 2</h3>
+                        <p class="game-description">Unmask the ghost among you.</p>
+                        <div class="game-meta">
+                            <span class="game-category">Action</span>
+                            <button class="download-btn" onclick="downloadGame('Ghost of Yotei')">Télécharger</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                 <div class="game-card">
+                    <img id="img1" src="companyofheros.jpeg" alt="">
+                    <div class="game-image" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
+                        <div class="game-overlay">
+                            <span class="game-rating">4.5 ★</span>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">COMPANY OF HEROS</h3>
+                        <p class="game-description">Unmask the ghost among you.</p>
+                        <div class="game-meta">
+                            <span class="game-category">Action</span>
+                            <button class="download-btn" onclick="downloadGame('Ghost of Yotei')">Télécharger</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <div class="game-card">
+                    <img id="img1" src="crashroyale.jpeg" alt="">
+                    <div class="game-image" style="background: linear-gradient(135deg, #ff6b6b, #ee5a24);">
+                        <div class="game-overlay">
+                            <span class="game-rating">4.5 ★</span>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <h3 class="game-title">CRASH ROYALE</h3>
+                        <p class="game-description">Unmask the ghost among you.</p>
+                        <div class="game-meta">
+                            <span class="game-category">Action</span>
+                            <button class="download-btn" onclick="downloadGame('Ghost of Yotei')">Télécharger</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Jeu 2 -->
+                <div class="game-card">
+                    <div class="game-image" style="background: linear-gradient(135deg, #ff9f43, #feca57);">
+                        <div class="game-overlay">
+                            <span class="game-rating">4.2 ★</span>
+                        </div>
+                    </div>
+                    <div class="game-content">
+                        <img id="img1" src="civilization.jpeg" alt="">
+                        <h3 class="game-title">CIVILIZATION </h3>
+                        <p class="game-description">Défendez la Terre contre des envahisseurs extraterrestres.</p>
+                        <div class="game-meta">
+                            <span class="game-category">Action</span>
+                            <button class="download-btn" onclick="downloadGame('UFC 5')">Télécharger</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ajoutez d'autres jeux d'action ici -->
+            </div>
+        </div>
+    </section>
+
+    <script src="projet.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!-- auth.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Gaaming Woorld</title>
+    <link rel="stylesheet" href="projet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 0 50px;
+        }
+        
+        .auth-box {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            width: 100%;
+            max-width: 450px;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--gray-light);
+        }
+        
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .auth-tab.active {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        .auth-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .auth-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .auth-links {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .auth-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header avec navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>🎮</span>
+                    <span>Gaaming Woorld</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="projet.html">Accueil</a></li>
+                        <li><a href="action.html">Action</a></li>
+                        <li><a href="adv.html">Aventure</a></li>
+                        <li><a href="sport.html">Sport</a></li>
+                        <li><a href="strateg.html">Stratégie</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Authentification -->
+    <section class="auth-container">
+        <div class="container">
+            <div class="auth-box">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="showTab('login')">Connexion</button>
+                    <button class="auth-tab" onclick="showTab('register')">Inscription</button>
+                </div>
+                
+                <!-- Formulaire de Connexion -->
+                <form id="login-form" class="auth-form active" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Mot de passe</label>
+                        <input type="password" id="login-password" required placeholder="Votre mot de passe">
+                    </div>
+                    <button type="submit" class="auth-btn">Se connecter</button>
+                    <div class="auth-links">
+                        <a href="#" onclick="showTab('register')">Créer un compte</a>
+                    </div>
+                </form>
+                
+                <!-- Formulaire d'Inscription -->
+                <form id="register-form" class="auth-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="register-username">Nom d'utilisateur</label>
+                        <input type="text" id="register-username" required placeholder="Votre pseudo">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required placeholder="votre@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Mot de passe</label>
+                        <input type="password" id="register-password" required placeholder="Mot de passe sécurisé">
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm">Confirmer le mot de passe</label>
+                        <input type="password" id="register-confirm" required placeholder="Répétez le mot de passe">
+                    </div>
+                    <button type="submit" class="auth-btn">Créer un compte</button>
+                    <div class="auth-links">
+                        <a href="#" onclick="showTab('login')">Déjà un compte ?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showTab(tabName) {
+            // Masquer tous les formulaires
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+            
+            // Désactiver tous les onglets
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Afficher le formulaire sélectionné
+            document.getElementById(tabName + '-form').classList.add('active');
+            
+            // Activer l'onglet sélectionné
+            event.target.classList.add('active');
+        }
+        
+        function handleLogin(e) {
+            e.preventDefault();
+            alert('Connexion réussie ! Redirection...');
+            // Ici vous ajouteriez la logique de connexion réelle
+        }
+        
+        function handleRegister(e) {
+            e.preventDefault();
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            
+            if (password !== confirm) {
+                alert('Les mots de passe ne correspondent pas !');
+                return;
+            }
+            
+            alert('Inscription réussie ! Bienvenue sur Gaaming Woorld');
+            // Ici vous ajouteriez la logique d'inscription réelle
+        }
+    </script>
+</body>
+</html>
